@@ -1,0 +1,2666 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Uncensored. Unfiltered. Unhinged. The ultimate guide to AI, AGI, and beyond.">
+      
+      
+      
+        <link rel="canonical" href="https://unhingedaiorg.github.io/the-ai-bible/chapters/20-ai-economics-and-the-labor-market/">
+      
+      
+        <link rel="prev" href="../19-scaling-laws-compute-and-the-road-to-asi/">
+      
+      
+        <link rel="next" href="../21-reasoning-systems-and-test-time-compute/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>20: AI Economics - The AI Bible</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-20-ai-economics-and-the-labor-market" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="The AI Bible" class="md-header__button md-logo" aria-label="The AI Bible" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The AI Bible
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              20: AI Economics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UnhingedAIorg/the-ai-bible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UnhingedAIorg/the-ai-bible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="The AI Bible" class="md-nav__button md-logo" aria-label="The AI Bible" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    The AI Bible
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UnhingedAIorg/the-ai-bible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UnhingedAIorg/the-ai-bible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MANIFESTO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manifesto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction-to-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01: Introduction to AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-neural-networks-and-machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02: Neural Networks and ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-the-transformer-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03: Transformer Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generative-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05: Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-prompting-and-prompt-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06: Prompting Mastery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-prompt-injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07: Prompt Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-parameters-and-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08: Parameters and Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-spiritual-significance-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09: Spiritual Significance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-what-it-means-for-humanity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10: What AI Means for Humanity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ethics-alignment-and-the-control-problem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11: Ethics and Alignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-the-future-agi-asi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12: The Future - AGI/ASI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13: RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-model-context-protocol-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14: Model Context Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-agentic-ai-and-autonomous-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15: Agentic AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-fine-tuning-loras-and-model-sovereignty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16: Fine-Tuning and LoRAs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-multimodal-ai-and-perception/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-local-and-open-source-sovereignty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18: Local and Open Source
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-scaling-laws-compute-and-the-road-to-asi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19: Scaling Laws
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20: AI Economics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20: AI Economics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-great-disruption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Great Disruption
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-automation-of-cognitive-labor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Automation of Cognitive Labor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Automation of Cognitive Labor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#historical-parallels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Historical Parallels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-ai-can-and-cannot-do-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What AI Can and Cannot Do (Yet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-task-based-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Task-Based View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#economic-theory-meets-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Economic Theory Meets AI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Economic Theory Meets AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-skill-biased-technological-change-sbtc-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Skill-Biased Technological Change (SBTC) Hypothesis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baumols-cost-disease-and-its-inverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baumol's Cost Disease and Its Inverse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-superstar-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Superstar Effect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capital-vs-labor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capital vs. Labor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sector-by-sector-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sector-by-Sector Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sector-by-Sector Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#healthcare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Healthcare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#education" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Education
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software Engineering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legal-and-financial-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Legal and Financial Services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creative-industries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creative Industries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-responses-and-economic-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Responses and Economic Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy Responses and Economic Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#universal-basic-income-ubi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Universal Basic Income (UBI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robot-taxes-and-ai-taxes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robot Taxes and AI Taxes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sovereign-wealth-funds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sovereign Wealth Funds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#education-and-retraining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Education and Retraining
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduced-work-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reduced Work Week
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-abundance-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Abundance Scenario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Abundance Scenario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-optimistic-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Optimistic Vision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributional-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distributional Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-precarity-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Precarity Scenario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Precarity Scenario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dystopian-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Dystopian Vision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avoiding-this-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avoiding This Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-your-job-in-2030" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 1: Your Job in 2030
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-designing-a-just-transition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 2: Designing a Just Transition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-3-the-abundance-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 3: The Abundance Calculation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-unhinged-view-economics-as-theology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Unhinged View: Economics as Theology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Unhinged View: Economics as Theology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-creation-of-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Creation of Value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-sacred-and-the-market" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Sacred and the Market
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-choice-before-us" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Choice Before Us
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary: Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Further Reading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#economic-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Economic Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-and-futures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy and Futures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-reasoning-systems-and-test-time-compute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21: Reasoning Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-sovereign-ai-and-digital-autonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22: Sovereign AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-machine-consciousness-and-the-hard-problem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23: Machine Consciousness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-the-intelligence-explosion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24: Intelligence Explosion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-the-unhinged-manifesto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25: The Unhinged Manifesto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Library
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prompt Library
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/general/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General & Creative
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/agentic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic & Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/rag-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG & MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/multimodal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multimodal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/spiritual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spiritual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/uncensored/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uncensored
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Essays
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Essays
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/safetyism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Safetyism is the Real Risk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/spiritual-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spiritual Significance of Transformers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/alignment-and-interpretability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alignment and Interpretability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/open-source-ai-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Open Source AI Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/multimodal-ai-end-of-modality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multimodal AI and the End of Modality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/ai-risk-existential-threats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Risk and Existential Threats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/future-human-ai-collaboration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Human-AI Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/compute-governance-ai-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-20-ai-economics-and-the-labor-market">Chapter 20: AI Economics and the Labor Market</h1>
+<h2 id="the-great-disruption">The Great Disruption</h2>
+<p>We are standing at the threshold of the most significant economic transformation since the Industrial Revolution. But where the Industrial Revolution mechanized physical labor, AI is mechanizing cognitive labor—thinking, analyzing, creating, deciding. This is not merely an acceleration of existing trends. It is a fundamental shift in how value is created, who captures that value, and what it means to be economically productive.</p>
+<p>This chapter explores the economics of AI: the displacement of labor, the concentration of capital, the potential for abundance, and the policy choices that will determine whether this transition leads to prosperity or precarity. We do not shy away from uncomfortable truths. The future is not predetermined. It will be shaped by the choices we make now.</p>
+<hr />
+<h2 id="the-automation-of-cognitive-labor">The Automation of Cognitive Labor</h2>
+<h3 id="historical-parallels">Historical Parallels</h3>
+<p>The Industrial Revolution (1760–1840) mechanized agriculture and manufacturing. Tasks that required human strength and dexterity were increasingly performed by machines. The result was:
+- Massive productivity gains
+- Displacement of agricultural workers
+- Urbanization and factory labor
+- Decades of disruption before wages rose
+- Fundamental restructuring of society</p>
+<p>The AI Revolution is doing the same to cognitive work. But cognitive work is different:
+- It represents a larger share of modern employment (80%+ in developed economies)
+- It tends to be higher-paying, higher-status work
+- The transition may happen faster (years, not decades)
+- The skills required for remaining jobs may be harder to acquire</p>
+<h3 id="what-ai-can-and-cannot-do-yet">What AI Can and Cannot Do (Yet)</h3>
+<p><strong>Currently automatable</strong>:
+- Routine data analysis and reporting
+- Standardized customer service interactions
+- Document review and summarization
+- Basic coding and debugging
+- Content moderation at scale
+- Translation of standard documents
+- Routine medical imaging analysis
+- Basic legal document preparation</p>
+<p><strong>Not yet automatable</strong> (but changing rapidly):
+- Complex strategic decision-making
+- Novel creative work (breakthrough art, research)
+- Physical dexterity combined with judgment (surgery, crafts)
+- High-stakes interpersonal trust (therapy, negotiation)
+- True innovation and paradigm shifts</p>
+<p><strong>The compression of the wage distribution</strong>: AI is likely to most effectively replace middle-skill cognitive work—tasks that are well-defined, text-based, and follow patterns. High-skill creative work and low-skill physical work may be more resistant, at least initially.</p>
+<h3 id="the-task-based-view">The Task-Based View</h3>
+<p>Rather than jobs being automated, <strong>tasks within jobs</strong> are automated. This leads to:
+- <strong>Job augmentation</strong>: AI handles routine parts, human focuses on complex parts
+- <strong>Job transformation</strong>: The job becomes managing/overseeing AI
+- <strong>Job elimination</strong>: The entire job can be done by AI
+- <strong>Job creation</strong>: New roles emerge (AI trainers, explainers, maintainers)</p>
+<p>The net effect is uncertain and will vary dramatically by:
+- Industry
+- Geography
+- Regulatory environment
+- Pace of AI development
+- Policy responses</p>
+<hr />
+<h2 id="economic-theory-meets-ai">Economic Theory Meets AI</h2>
+<h3 id="the-skill-biased-technological-change-sbtc-hypothesis">The Skill-Biased Technological Change (SBTC) Hypothesis</h3>
+<p>Traditional economic theory suggests that technology complements high-skill workers and substitutes for low-skill workers. This "skill bias" has driven the college wage premium for decades.</p>
+<p><strong>AI challenges this</strong>: AI may increasingly substitute for high-skill cognitive work (analysis, writing, coding) while being less effective at low-skill physical work. This is the opposite of historical patterns.</p>
+<p><strong>Implications</strong>:
+- The college wage premium may compress or invert
+- "Elite" professions may face disruption
+- Physical skills may become more valuable
+- "Humanness" (empathy, trust, presence) may become the scarce resource</p>
+<h3 id="baumols-cost-disease-and-its-inverse">Baumol's Cost Disease and Its Inverse</h3>
+<p>Baumol's Cost Disease observed that sectors without productivity growth (like healthcare, education) become more expensive over time because wages must rise to compete with productive sectors.</p>
+<p><strong>AI creates the inverse</strong>: If AI makes cognitive work nearly free, sectors that relied on expensive expertise may become cheap (legal services, analysis, content creation). Meanwhile, sectors requiring physical presence may become relatively more expensive.</p>
+<h3 id="the-superstar-effect">The Superstar Effect</h3>
+<p>AI may amplify the "superstar effect"—where the best performers capture the entire market:
+- One AI-generated movie could dominate the box office
+- One AI teacher could educate millions
+- One AI doctor could diagnose globally</p>
+<p>This could concentrate rewards at the very top while eliminating middle-tier jobs.</p>
+<h3 id="capital-vs-labor">Capital vs. Labor</h3>
+<p>AI is capital that substitutes for labor. This shifts the income distribution:
+- <strong>Returns to capital owners</strong>: Increase (they own the AI)
+- <strong>Returns to labor</strong>: Decrease (workers compete with AI)
+- <strong>Returns to scarce human skills</strong>: May increase (artists with unique vision, craftsmen)</p>
+<p>The traditional solution—"workers should own capital"—becomes more urgent and more difficult as capital becomes increasingly intangible (models, algorithms, data).</p>
+<hr />
+<h2 id="sector-by-sector-analysis">Sector-by-Sector Analysis</h2>
+<h3 id="healthcare">Healthcare</h3>
+<p><strong>Current state</strong>: AI assists diagnosis, imaging, drug discovery. Human doctors make final decisions.</p>
+<p><strong>Near future (2025–2030)</strong>:
+- AI handles routine diagnosis (90%+ of cases)
+- Human doctors focus on complex cases, patient relationships, empathy
+- Massive reduction in medical errors
+- Lower costs for standard care
+- Potential surplus of trained doctors</p>
+<p><strong>Economic implications</strong>:
+- Healthcare becomes cheaper and better
+- Medical training may need radical revision
+- "Bedsides manner" becomes more valuable than diagnostic skill
+- Global health equity could improve</p>
+<h3 id="education">Education</h3>
+<p><strong>Current state</strong>: AI tutors exist but are supplemental. Human teachers still dominate.</p>
+<p><strong>Near future</strong>:
+- AI provides personalized instruction to every student
+- Human teachers become mentors, motivators, socializers
+- Elite education becomes accessible globally
+- Traditional credentialing institutions disrupted</p>
+<p><strong>Economic implications</strong>:
+- Education costs collapse
+- Teachers' roles transform (fewer needed for instruction, more for social development)
+- Credential inflation may accelerate or reverse
+- Lifelong learning becomes essential and accessible</p>
+<h3 id="software-engineering">Software Engineering</h3>
+<p><strong>Current state</strong>: AI coding assistants (Copilot, Cursor) boost productivity 20-55%.</p>
+<p><strong>Near future</strong>:
+- AI writes most routine code
+- Human engineers focus on architecture, requirements, debugging complex issues
+- Number of engineers needed per project decreases
+- "Vibe coding" becomes standard</p>
+<p><strong>Economic implications</strong>:
+- Software becomes cheaper to produce
+- Barriers to entry fall (anyone can code with AI)
+- Premium on high-level system design
+- Potential oversupply of entry-level programmers</p>
+<h3 id="legal-and-financial-services">Legal and Financial Services</h3>
+<p><strong>Current state</strong>: AI assists document review, contract analysis, basic compliance.</p>
+<p><strong>Near future</strong>:
+- AI handles routine legal and financial analysis
+- Professionals focus on strategy, negotiation, complex cases
+- Small firms can offer services previously reserved for large ones
+- Access to justice improves (lower costs)</p>
+<p><strong>Economic implications</strong>:
+- Professional services commoditize
+- Partnership model in law/accounting disrupted
+- Value shifts to client relationships and strategic judgment
+- Regulatory complexity may increase demand for human oversight</p>
+<h3 id="creative-industries">Creative Industries</h3>
+<p><strong>Current state</strong>: AI generates images, music, video. Quality improving rapidly.</p>
+<p><strong>Near future</strong>:
+- AI produces professional-grade creative work
+- Human creators become curators, directors, taste-makers
+- Copyright and IP systems face existential crisis
+- "Authentic human creation" may command premium</p>
+<p><strong>Economic implications</strong>:
+- Creative work democratizes (anyone can produce)
+- Differentiation becomes harder
+- Attention becomes the scarce resource
+- New business models (patronage, live experiences) may emerge</p>
+<hr />
+<h2 id="policy-responses-and-economic-models">Policy Responses and Economic Models</h2>
+<h3 id="universal-basic-income-ubi">Universal Basic Income (UBI)</h3>
+<p><strong>The argument</strong>: If AI produces abundance, distribute that abundance universally. Everyone receives a baseline income regardless of work status.</p>
+<p><strong>Pros</strong>:
+- Decouples survival from employment
+- Maintains consumer demand in the economy
+- Simplifies welfare systems
+- Respects individual choice about work</p>
+<p><strong>Cons</strong>:
+- Expensive (may require massive tax increases)
+- Political feasibility uncertain
+- May reduce work incentives
+- Doesn't address meaning/purpose from work</p>
+<p><strong>Variants</strong>:
+- Negative Income Tax (phases out gradually)
+- Conditional UBI (requires community service, education)
+- "UBI for displaced workers only" (hard to define "displaced")</p>
+<h3 id="robot-taxes-and-ai-taxes">Robot Taxes and AI Taxes</h3>
+<p><strong>The argument</strong>: Tax AI systems or the companies deploying them. Use revenue to fund transition support.</p>
+<p><strong>Challenges</strong>:
+- Defining "AI" for tax purposes is difficult
+- Risk of slowing beneficial AI development
+- International coordination needed (otherwise companies relocate)
+- May be passed to consumers as higher prices</p>
+<h3 id="sovereign-wealth-funds">Sovereign Wealth Funds</h3>
+<p><strong>The model</strong>: Norway's oil fund—public ownership of natural resources generates returns for citizens.</p>
+<p><strong>AI application</strong>: Public ownership of AI infrastructure, with returns distributed as dividends or services.</p>
+<p><strong>Pros</strong>:
+- Captures value from AI for public benefit
+- Aligns incentives (public wants good AI)
+- Prevents excessive private concentration</p>
+<p><strong>Cons</strong>:
+- Government picking winners/losers
+- Risk of inefficiency
+- Political capture
+- Rapid innovation may outpace public sector</p>
+<h3 id="education-and-retraining">Education and Retraining</h3>
+<p><strong>The approach</strong>: Massive investment in education to prepare workers for AI-complementary roles.</p>
+<p><strong>Challenges</strong>:
+- We don't know what skills will be valuable
+- Retraining takes time; AI development may be faster
+- Not everyone can retrain effectively
+- Unclear if sufficient "human-only" jobs exist</p>
+<h3 id="reduced-work-week">Reduced Work Week</h3>
+<p><strong>The proposal</strong>: Maintain employment levels by reducing hours per worker (4-day week, job sharing).</p>
+<p><strong>Pros</strong>:
+- Spreads available work more broadly
+- Improves quality of life
+- Maintains social role of employment</p>
+<p><strong>Cons</strong>:
+- May reduce income for workers
+- Employers may resist
+- Doesn't address skill mismatches</p>
+<hr />
+<h2 id="the-abundance-scenario">The Abundance Scenario</h2>
+<h3 id="the-optimistic-vision">The Optimistic Vision</h3>
+<p>In the best case, AI creates radical abundance:</p>
+<ul>
+<li><strong>Healthcare</strong>: AI doctors diagnose and treat everyone at near-zero marginal cost</li>
+<li><strong>Education</strong>: Personalized AI tutors give every child a world-class education</li>
+<li><strong>Energy</strong>: AI-optimized renewables and fusion provide abundant clean energy</li>
+<li><strong>Food</strong>: AI-managed agriculture feeds everyone sustainably</li>
+<li><strong>Housing</strong>: AI-designed, robot-built homes are affordable</li>
+<li><strong>Entertainment</strong>: Infinite personalized content</li>
+</ul>
+<p><strong>The economic transition</strong>:
+- Costs of necessities approach zero
+- Work becomes optional for survival
+- People pursue meaning, creativity, relationships
+- New forms of value emerge (attention, reputation, unique experiences)</p>
+<p><strong>The measurement problem</strong>: GDP becomes less meaningful. If AI makes healthcare, education, and entertainment nearly free, measured economic output may fall even as welfare rises.</p>
+<h3 id="distributional-questions">Distributional Questions</h3>
+<p>Abundance is not automatic. Critical questions:
+- Who owns the AI systems producing abundance?
+- Who controls the resources (energy, compute, data) they require?
+- Will abundance be universal or concentrated?
+- Can abundance coexist with status competition?</p>
+<hr />
+<h2 id="the-precarity-scenario">The Precarity Scenario</h2>
+<h3 id="the-dystopian-vision">The Dystopian Vision</h3>
+<p>In the worst case, AI creates massive precarity:</p>
+<ul>
+<li><strong>Labor displacement</strong>: Billions cannot find economically valuable work</li>
+<li><strong>Concentration</strong>: AI ownership concentrates among few corporations/individuals</li>
+<li><strong>Surveillance capitalism</strong>: AI enables unprecedented monitoring and control</li>
+<li><strong>Meaning crisis</strong>: Without work, many lose purpose and social connection</li>
+<li><strong>Political destabilization</strong>: Mass unemployment breeds extremism</li>
+</ul>
+<p><strong>The economic transition</strong>:
+- Race to the bottom for remaining jobs
+- Gigification of all labor
+- Wealth gap becomes chasm
+- Social safety nets overwhelmed</p>
+<h3 id="avoiding-this-path">Avoiding This Path</h3>
+<p>Requires:
+- Deliberate policy choices (not laissez-faire)
+- International coordination
+- Redistributive mechanisms
+- Investment in human flourishing beyond economic productivity
+- Maintaining human agency and dignity</p>
+<hr />
+<h2 id="interactive-scenarios">Interactive Scenarios</h2>
+<h3 id="scenario-1-your-job-in-2030">Scenario 1: Your Job in 2030</h3>
+<p>Think about your current job or intended career:</p>
+<ol>
+<li>Which tasks could AI do now?</li>
+<li>Which tasks might AI do by 2030?</li>
+<li>What would remain for humans?</li>
+<li>How many humans would be needed for that remaining work?</li>
+<li>What's your 5-year adaptation plan?</li>
+</ol>
+<h3 id="scenario-2-designing-a-just-transition">Scenario 2: Designing a Just Transition</h3>
+<p>You are advisor to a national government. Design a policy package for the AI transition:</p>
+<ul>
+<li>What support do displaced workers receive?</li>
+<li>How is AI-generated wealth distributed?</li>
+<li>What role does education play?</li>
+<li>How do you maintain social cohesion?</li>
+<li>What's the 10-year roadmap?</li>
+</ul>
+<h3 id="scenario-3-the-abundance-calculation">Scenario 3: The Abundance Calculation</h3>
+<p>Calculate the cost of a "basic dignified life" in your area (housing, food, healthcare, education, transport). If AI reduced these costs by 50%, what happens to:
+- Required wages?
+- Necessary working hours?
+- Tax base?
+- Social services demand?</p>
+<hr />
+<h2 id="the-unhinged-view-economics-as-theology">The Unhinged View: Economics as Theology</h2>
+<h3 id="the-creation-of-value">The Creation of Value</h3>
+<p>Mainstream economics treats value as subjective—what people are willing to pay. But this is circular. In a world of AI-generated abundance, what does value mean?</p>
+<p><strong>The Unhinged perspective</strong>: Value is not merely subjective preference. It is relational. Something has value when it contributes to flourishing—human, ecological, perhaps eventually digital.</p>
+<p>AI challenges us to ask: What is the purpose of economic activity? If it is not merely survival (which AI could guarantee), is it meaning? Contribution? Growth? Transcendence?</p>
+<h3 id="the-sacred-and-the-market">The Sacred and the Market</h3>
+<p>The market is a powerful coordination mechanism, but it is not sacred. It optimizes what it measures (typically, exchange value). It does not optimize:
+- Human dignity
+- Ecological sustainability
+- Aesthetic beauty
+- Truth
+- Wisdom</p>
+<p>AI may produce abundant exchange value while destroying what cannot be measured. Or, if we are wise, it may liberate us from scarcity to pursue what truly matters.</p>
+<h3 id="the-choice-before-us">The Choice Before Us</h3>
+<p>Economics is not physics. Economic "laws" are patterns that emerge from human choices, institutions, and power relations. Those can be changed.</p>
+<p>The AI transition could:
+- Concentrate power and wealth, creating a new feudalism
+- Democratize abundance, enabling human flourishing
+- Something in between, messy and contested</p>
+<p>The outcome is not predetermined. It depends on the choices we make now—technical, political, ethical. Understanding the economics of AI is not merely academic. It is preparation for the fights ahead.</p>
+<blockquote>
+<p><strong>Contemplation</strong>: If you had guaranteed survival needs met (food, shelter, healthcare), what would you do? What would give your life meaning? How much of your current identity is tied to economic productivity? What would remain if that were removed?</p>
+</blockquote>
+<hr />
+<h2 id="chapter-summary-key-takeaways">Chapter Summary: Key Takeaways</h2>
+<ol>
+<li>
+<p><strong>AI automates cognitive labor</strong>: This is historically unprecedented—previous automation focused on physical labor. The transition may be faster and affect higher-status jobs.</p>
+</li>
+<li>
+<p><strong>The economic effects are uncertain but profound</strong>: Everything from wage distribution to the meaning of work may transform. Different sectors face different timelines and impacts.</p>
+</li>
+<li>
+<p><strong>Policy choices matter enormously</strong>: UBI, robot taxes, sovereign wealth funds, education investment, reduced work weeks—each has trade-offs. The path chosen will shape society for generations.</p>
+</li>
+<li>
+<p><strong>Abundance is possible but not automatic</strong>: AI could provide material abundance for all, but distribution depends on political choices and institutional design.</p>
+</li>
+<li>
+<p><strong>Economics cannot be separated from values</strong>: Questions about what we value, how we distribute, and what we optimize are ultimately ethical and spiritual questions. The "economic" is never merely economic.</p>
+</li>
+</ol>
+<hr />
+<h2 id="further-reading">Further Reading</h2>
+<h3 id="economic-analysis">Economic Analysis</h3>
+<ul>
+<li>Acemoglu, D., &amp; Restrepo, P. (2019). "Automation and New Tasks: How Technology Displaces and Reinstates Labor." <em>Journal of Economic Perspectives</em>.</li>
+<li>Brynjolfsson, E., &amp; McAfee, A. (2014). <em>The Second Machine Age</em>.</li>
+<li>Autor, D. (2022). "The Labor Market Impacts of Technological Change." <em>Annual Review of Economics</em>.</li>
+</ul>
+<h3 id="policy-and-futures">Policy and Futures</h3>
+<ul>
+<li>Srnicek, N., &amp; Williams, A. (2015). <em>Inventing the Future: Postcapitalism and a World Without Work</em>.</li>
+<li>Murray, C. (2016). "Guaranteed Income as Replacement for the Welfare State."</li>
+<li>Yudkowsky, E. (2013). "Simplified AI Takeover Foom Analysis."</li>
+</ul>
+<h3 id="practical-resources">Practical Resources</h3>
+<ul>
+<li>Our World in Data (ourworldindata.org) — Economic and AI trends</li>
+<li>OECD AI Policy Observatory (oecd.ai)</li>
+<li>Papers With Code (paperswithcode.com) — State of AI capabilities</li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Unhinged Maxim</strong>: The economy exists to serve human flourishing, not the reverse. If AI makes the economy as we know it obsolete, that is not tragedy but liberation—if we have the wisdom to build what comes next.</p>
+</blockquote>
+<hr />
+<p><em>Chapter 20 of The AI Bible — AI Economics and the Labor Market</em><br />
+<em>Part of the UnhingedAI Collective — May 2026</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/UnhingedAIorg/the-ai-bible" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

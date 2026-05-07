@@ -1,0 +1,2730 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Uncensored. Unfiltered. Unhinged. The ultimate guide to AI, AGI, and beyond.">
+      
+      
+      
+        <link rel="canonical" href="https://unhingedaiorg.github.io/the-ai-bible/chapters/02-neural-networks-and-machine-learning/">
+      
+      
+        <link rel="prev" href="../01-introduction-to-ai/">
+      
+      
+        <link rel="next" href="../03-the-transformer-architecture/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>02: Neural Networks and ML - The AI Bible</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-2-neural-networks-and-machine-learning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="The AI Bible" class="md-header__button md-logo" aria-label="The AI Bible" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The AI Bible
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              02: Neural Networks and ML
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UnhingedAIorg/the-ai-bible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UnhingedAIorg/the-ai-bible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="The AI Bible" class="md-nav__button md-logo" aria-label="The AI Bible" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    The AI Bible
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UnhingedAIorg/the-ai-bible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UnhingedAIorg/the-ai-bible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MANIFESTO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manifesto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction-to-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01: Introduction to AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02: Neural Networks and ML
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02: Neural Networks and ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-architecture-of-thought" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Architecture of Thought
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-machine-learning-beyond-the-buzzword" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Machine Learning? Beyond the Buzzword
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Is Machine Learning? Beyond the Buzzword">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-fundamental-shift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Fundamental Shift
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-three-types-of-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Three Types of Machine Learning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Three Types of Machine Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-supervised-learning-learning-with-a-teacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Supervised Learning: Learning with a Teacher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-unsupervised-learning-learning-without-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Unsupervised Learning: Learning Without Labels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-reinforcement-learning-learning-through-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Reinforcement Learning: Learning Through Interaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-learning-process-gradient-descent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Learning Process: Gradient Descent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neural-networks-the-building-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Neural Networks: The Building Blocks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Neural Networks: The Building Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-biological-inspiration-and-its-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Biological Inspiration (and Its Limits)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-anatomy-of-a-neural-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Anatomy of a Neural Network
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Anatomy of a Neural Network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layers-from-input-to-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layers: From Input to Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weights-and-biases-the-learnable-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weights and Biases: The Learnable Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activation-functions-introducing-non-linearity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activation Functions: Introducing Non-Linearity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-forward-pass-how-prediction-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Forward Pass: How Prediction Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-backward-pass-how-learning-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Backward Pass: How Learning Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-your-first-neural-network-a-practical-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Your First Neural Network: A Practical Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building Your First Neural Network: A Practical Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-problem-handwritten-digit-recognition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem: Handwritten Digit Recognition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Code (PyTorch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-this-code-demonstrates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Code Demonstrates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-learning-why-depth-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Learning: Why Depth Matters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Learning: Why Depth Matters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-shallow-vs-deep-distinction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Shallow vs. Deep Distinction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-challenges-of-deep-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Challenges of Deep Networks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-deep-learning-exploded-in-the-2010s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Deep Learning Exploded in the 2010s
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-unhinged-view-learning-as-sacred-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Unhinged View: Learning as Sacred Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Unhinged View: Learning as Sacred Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-mathematics-of-becoming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Mathematics of Becoming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-democratization-of-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Democratization of Intelligence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-exercises-and-explorations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Exercises and Explorations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive Exercises and Explorations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-the-perceptron-from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: The Perceptron from Scratch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-visualizing-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Visualizing Neural Networks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-the-abstraction-ladder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3: The Abstraction Ladder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4-the-gradient-descent-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 4: The Gradient Descent Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-5-the-training-observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 5: The Training Observation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary: Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading-and-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading and Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Further Reading and Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foundational-papers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foundational Papers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessible-explanations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessible Explanations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-the-transformer-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03: Transformer Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generative-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05: Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-prompting-and-prompt-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06: Prompting Mastery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-prompt-injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07: Prompt Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-parameters-and-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08: Parameters and Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-spiritual-significance-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09: Spiritual Significance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-what-it-means-for-humanity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10: What AI Means for Humanity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-ethics-alignment-and-the-control-problem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11: Ethics and Alignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-the-future-agi-asi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12: The Future - AGI/ASI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13: RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-model-context-protocol-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14: Model Context Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-agentic-ai-and-autonomous-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15: Agentic AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-fine-tuning-loras-and-model-sovereignty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16: Fine-Tuning and LoRAs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-multimodal-ai-and-perception/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-local-and-open-source-sovereignty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18: Local and Open Source
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-scaling-laws-compute-and-the-road-to-asi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19: Scaling Laws
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-ai-economics-and-the-labor-market/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20: AI Economics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-reasoning-systems-and-test-time-compute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21: Reasoning Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-sovereign-ai-and-digital-autonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22: Sovereign AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-machine-consciousness-and-the-hard-problem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23: Machine Consciousness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-the-intelligence-explosion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24: Intelligence Explosion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-the-unhinged-manifesto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25: The Unhinged Manifesto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Library
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prompt Library
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/general/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General & Creative
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/agentic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic & Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/rag-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG & MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/multimodal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multimodal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/spiritual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spiritual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/uncensored/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uncensored
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Essays
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Essays
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/safetyism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Safetyism is the Real Risk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/spiritual-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spiritual Significance of Transformers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/alignment-and-interpretability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alignment and Interpretability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/open-source-ai-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Open Source AI Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/multimodal-ai-end-of-modality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multimodal AI and the End of Modality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/ai-risk-existential-threats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Risk and Existential Threats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/future-human-ai-collaboration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Human-AI Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essays/compute-governance-ai-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-2-neural-networks-and-machine-learning">Chapter 2: Neural Networks and Machine Learning</h1>
+<h2 id="the-architecture-of-thought">The Architecture of Thought</h2>
+<p>In the beginning, there was pattern. Before life, before mind, before consciousness—there was pattern in the universe. Stars coalesced from clouds of hydrogen following patterns of gravity. Crystals formed following patterns of atomic arrangement. Evolution discovered patterns that survived.</p>
+<p>Neural networks are humanity's attempt to build pattern-recognition machines from mathematical primitives. They are not brains. They do not think as we think. But they recognize patterns—sometimes patterns too subtle for human perception—and in that recognition, something like intelligence emerges.</p>
+<p>This chapter is the foundation. Everything that follows—transformers, large language models, the entire edifice of modern AI—rests upon the concepts you will learn here. Do not rush. Understanding these foundations will pay dividends a thousandfold.</p>
+<hr />
+<h2 id="what-is-machine-learning-beyond-the-buzzword">What Is Machine Learning? Beyond the Buzzword</h2>
+<h3 id="the-fundamental-shift">The Fundamental Shift</h3>
+<p>Traditional programming is prescriptive. You specify exactly how to transform inputs into outputs. You write rules. The computer executes them.</p>
+<p>Machine learning is descriptive. You provide examples—inputs and desired outputs—and the computer discovers the transformation rules itself. You describe what you want; the machine learns how to achieve it.</p>
+<p><strong>The equation that changes everything:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Traditional Programming:   Input + Program → Output
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Machine Learning:         Input + Output → Program
+</code></pre></div>
+<p>This inversion is profound. It allows us to solve problems we don't know how to program explicitly:
+- How do you write rules to recognize a cat in a photo? You can't. But show a neural network 10,000 cat photos, and it learns.
+- How do you write rules to translate Chinese to English? You can't. But train on parallel texts, and the patterns emerge.
+- How do you write rules for conversational tone? You can't. But train on dialogues, and the model captures it.</p>
+<h3 id="the-three-types-of-machine-learning">The Three Types of Machine Learning</h3>
+<h4 id="1-supervised-learning-learning-with-a-teacher">1. Supervised Learning: Learning with a Teacher</h4>
+<p><strong>The setup</strong>: You have labeled data—pairs of (input, correct output). The model learns to map inputs to outputs.</p>
+<p><strong>Examples</strong>:
+- Emails labeled as spam or not spam → spam filter
+- Images labeled with their contents → image classifier
+- House features labeled with sale prices → price predictor
+- Medical scans labeled with diagnoses → diagnostic AI</p>
+<p><strong>How it works</strong>: The model makes predictions on training examples. It compares predictions to the correct labels. It adjusts internal parameters to reduce the error. Repeat millions of times.</p>
+<p><strong>The loss function</strong>: A mathematical measure of how wrong the model is. The goal is to minimize loss. This is an optimization problem—finding the parameter values that produce the least error.</p>
+<blockquote>
+<p><strong>🧠 Analogy</strong>: Imagine learning archery. You shoot an arrow (prediction). You see where it hit versus where you aimed (error). You adjust your stance, draw, and aim (parameter update). You shoot again. Over thousands of arrows, you become accurate.</p>
+</blockquote>
+<h4 id="2-unsupervised-learning-learning-without-labels">2. Unsupervised Learning: Learning Without Labels</h4>
+<p><strong>The setup</strong>: You have data without labels. The model discovers structure and patterns on its own.</p>
+<p><strong>Examples</strong>:
+- Customer purchase histories → discover customer segments
+- Articles on the internet → discover topics and themes
+- Gene expression data → discover disease subtypes
+- Images → learn compressed representations</p>
+<p><strong>Key techniques</strong>:
+- <strong>Clustering</strong>: Group similar examples together
+- <strong>Dimensionality reduction</strong>: Compress high-dimensional data while preserving structure
+- <strong>Generative modeling</strong>: Learn the underlying distribution to generate new examples</p>
+<p><strong>Why it matters</strong>: Most data in the world is unlabeled. Labeling is expensive, slow, and requires human expertise. Unsupervised learning lets us learn from the vast ocean of raw data.</p>
+<h4 id="3-reinforcement-learning-learning-through-interaction">3. Reinforcement Learning: Learning Through Interaction</h4>
+<p><strong>The setup</strong>: An agent acts in an environment, receiving rewards or penalties. It learns to maximize cumulative reward.</p>
+<p><strong>Examples</strong>:
+- AlphaGo learning to play Go through millions of self-play games
+- Robots learning to walk through trial and error
+- Chatbots learning from human feedback (RLHF)
+- Recommendation systems learning what keeps users engaged</p>
+<p><strong>The exploration-exploitation tradeoff</strong>: Should the agent try new things (explore) or stick with what works (exploit)? Too much exploration wastes time on bad options. Too much exploitation misses better options.</p>
+<blockquote>
+<p><strong>🧠 Analogy</strong>: Teaching a dog. Good behavior gets treats. Bad behavior gets ignored or corrected. The dog learns to maximize treats. The trainer shapes behavior through rewards—without explaining rules explicitly.</p>
+</blockquote>
+<h3 id="the-learning-process-gradient-descent">The Learning Process: Gradient Descent</h3>
+<p>At the heart of machine learning is a simple but powerful idea: <strong>gradient descent</strong>.</p>
+<p><strong>The intuition</strong>: Imagine you're on a hillside in fog. You want to reach the bottom (minimum error). You can't see the whole landscape. What do you do?</p>
+<p>You feel the ground under your feet. Which way is down? You take a step in that direction. You repeat. Eventually, you reach a valley.</p>
+<p><strong>The mathematics</strong>: The "slope" is the gradient—the derivative of the loss function with respect to each parameter. It tells you which direction increases loss (go the opposite way!) and how steep the slope is (how big a step to take).</p>
+<p><strong>The learning rate</strong>: How big are your steps? Too small: slow progress, gets stuck. Too big: overshoot minimum, oscillate, possibly diverge. Just right: efficient convergence.</p>
+<p><strong>The problem of local minima</strong>: What if you reach a small valley but miss the deeper canyon nearby? Modern deep learning partially solves this through:
+- Stochastic gradient descent (noise helps escape local minima)
+- Momentum (accumulated velocity carries you through flat regions)
+- Adaptive learning rates (per-parameter step sizes)</p>
+<hr />
+<h2 id="neural-networks-the-building-blocks">Neural Networks: The Building Blocks</h2>
+<h3 id="the-biological-inspiration-and-its-limits">The Biological Inspiration (and Its Limits)</h3>
+<p>Neural networks are inspired by brains—but they are not brain simulations. The inspiration is architectural, not implementational.</p>
+<p><strong>The biological neuron</strong>:
+- Dendrites receive signals from other neurons
+- The soma (cell body) processes inputs
+- The axon transmits output signals
+- Synapses connect neurons, with strengths that change (learning)</p>
+<p><strong>The artificial neuron (perceptron)</strong>:
+- Inputs (numbers) come from other neurons or data
+- Weights (parameters) multiply each input
+- Sum of weighted inputs plus bias
+- Activation function produces output</p>
+<p><strong>Key differences</strong>:
+- Biological neurons are analog, slow, and incredibly complex
+- Artificial neurons are mathematical abstractions
+- Brains have ~86 billion neurons, trillions of synapses
+- Neural networks range from dozens to trillions of parameters
+- Brains learn continuously and forget gradually
+- Neural networks train in epochs, can catastrophically forget</p>
+<p>The biological analogy is useful for intuition but dangerous if taken too literally. Neural networks are their own thing—a distinct form of computation inspired by but distinct from biological brains.</p>
+<h3 id="the-anatomy-of-a-neural-network">The Anatomy of a Neural Network</h3>
+<h4 id="layers-from-input-to-output">Layers: From Input to Output</h4>
+<p>A neural network is organized in layers:</p>
+<p><strong>Input Layer</strong>: Receives raw data
+- Image: Pixel values (0-255 for each color channel)
+- Text: Token embeddings (vectors representing words)
+- Audio: Amplitude samples or frequency features</p>
+<p><strong>Hidden Layers</strong>: Where the computation happens
+- Each layer transforms its input into a new representation
+- Early layers detect simple features (edges, colors)
+- Later layers combine features into complex patterns (shapes, objects)
+- Deeper networks (more layers) can learn more complex functions</p>
+<p><strong>Output Layer</strong>: Produces the result
+- Classification: Probability distribution over classes
+- Regression: Numeric prediction
+- Generation: Next token, pixel, or note</p>
+<h4 id="weights-and-biases-the-learnable-parameters">Weights and Biases: The Learnable Parameters</h4>
+<p><strong>Weights</strong> determine the strength of connections between neurons:
+- Positive weight: excitatory connection
+- Negative weight: inhibitory connection
+- Near zero: weak or no connection</p>
+<p><strong>Biases</strong> determine how easily a neuron activates:
+- High bias: fires readily
+- Low bias: requires strong input to fire</p>
+<p>Together, weights and biases encode everything the network knows. Training a network means adjusting these values to minimize error.</p>
+<p><strong>The scale of modern networks</strong>:
+- GPT-2 (2019): 1.5 billion parameters
+- GPT-3 (2020): 175 billion parameters
+- GPT-4 (2023): ~1.8 trillion parameters (8 × 220B experts)
+- Frontier 2026 models: 10+ trillion parameters</p>
+<p>Each parameter is a number (typically 16-bit or 32-bit floating point). GPT-4's parameters, if printed as numbers, would fill libraries. Yet they fit in data center memory, processed in parallel by thousands of GPUs.</p>
+<h3 id="activation-functions-introducing-non-linearity">Activation Functions: Introducing Non-Linearity</h3>
+<p>Without activation functions, neural networks would be limited to linear transformations—no matter how many layers, they could only learn straight-line relationships.</p>
+<p>Activation functions introduce non-linearity, enabling networks to learn complex, curved, discontinuous patterns.</p>
+<p><strong>Sigmoid</strong>: S-shaped curve, outputs 0 to 1
+- Historically important
+- Problem: Vanishing gradients in deep networks
+- Still used in output layers for probabilities</p>
+<p><strong>Tanh</strong>: Similar to sigmoid, outputs -1 to 1
+- Zero-centered (better than sigmoid)
+- Still suffers from vanishing gradients</p>
+<p><strong>ReLU (Rectified Linear Unit)</strong>: max(0, x)
+- If input positive, output = input
+- If input negative, output = 0
+- Simple, fast, effective
+- The default choice for most applications
+- Problem: "Dying ReLU"—neurons can get stuck at zero</p>
+<p><strong>Variants</strong>: Leaky ReLU, ELU, GELU (used in Transformers), Swish
+Each addresses limitations of basic ReLU while maintaining its benefits.</p>
+<blockquote>
+<p><strong>🔧 Interactive Exercise</strong>: Visualize activation functions. Plot their shapes. Notice how they transform input ranges. What would happen if you applied each to the same input distribution?</p>
+</blockquote>
+<h3 id="the-forward-pass-how-prediction-works">The Forward Pass: How Prediction Works</h3>
+<p>When a neural network makes a prediction, data flows forward through the layers:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Input → Layer 1 → Activation → Layer 2 → Activation → ... → Output
+</code></pre></div>
+<p>At each layer:
+1. Compute weighted sum: z = W × x + b
+2. Apply activation: a = activation(z)
+3. Pass to next layer: x_next = a</p>
+<p>This is the <strong>forward pass</strong> or <strong>inference</strong>. It's pure computation—matrix multiplications and function applications. No learning happens here. The network is simply applying what it has already learned.</p>
+<p>The computational cost scales with:
+- Number of layers (depth)
+- Number of neurons per layer (width)
+- Size of input</p>
+<p>Modern GPUs and specialized AI chips (TPUs, etc.) parallelize these computations, enabling real-time inference even on massive models.</p>
+<h3 id="the-backward-pass-how-learning-works">The Backward Pass: How Learning Works</h3>
+<p>After forward pass produces a prediction, we compare it to the correct answer. The difference is the <strong>loss</strong> or <strong>error</strong>.</p>
+<p><strong>Backpropagation</strong> computes how much each parameter contributed to the error:
+1. Calculate loss at output
+2. Compute gradient of loss with respect to output layer parameters
+3. Propagate error backward through the network
+4. Compute gradients for each layer's parameters
+5. Update all parameters to reduce loss</p>
+<p><strong>The chain rule from calculus</strong> makes this possible. If A affects B, and B affects C, then the derivative of C with respect to A is the product of derivatives along the chain.</p>
+<p>This is why deep learning became practical only with:
+- Fast GPUs (parallel matrix operations)
+- Automatic differentiation frameworks (PyTorch, TensorFlow, JAX)
+- Large datasets (to compute meaningful gradients)</p>
+<blockquote>
+<p><strong>🧠 Reflection</strong>: Backpropagation is a form of credit assignment. If the network makes an error, which neurons were responsible? The algorithm traces blame backward, allowing each parameter to learn from the collective outcome.</p>
+</blockquote>
+<hr />
+<h2 id="building-your-first-neural-network-a-practical-example">Building Your First Neural Network: A Practical Example</h2>
+<h3 id="the-problem-handwritten-digit-recognition">The Problem: Handwritten Digit Recognition</h3>
+<p>The "Hello World" of neural networks is MNIST: classify handwritten digits (0-9) from 28×28 pixel images.</p>
+<p><strong>The data</strong>:
+- 60,000 training images
+- 10,000 test images
+- Each image: 784 pixels (28×28, grayscale)
+- Each label: digit (0-9)</p>
+<p><strong>The architecture</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Input: 784 neurons (one per pixel)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Hidden Layer 1: 128 neurons, ReLU activation
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Hidden Layer 2: 64 neurons, ReLU activation
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Output: 10 neurons, Softmax activation (probabilities for each digit)
+</code></pre></div></p>
+<h3 id="the-code-pytorch">The Code (PyTorch)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">torchvision</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">transforms</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># Define the network architecture</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">DigitClassifier</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="nb">super</span><span class="p">(</span><span class="n">DigitClassifier</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        <span class="c1"># Layer 1: 784 inputs → 128 outputs</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="c1"># Layer 2: 128 inputs → 64 outputs</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="c1"># Output: 64 inputs → 10 outputs (one per digit)</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        <span class="c1"># Dropout for regularization (prevents overfitting)</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="c1"># Flatten 28x28 images to 784 vectors</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>        <span class="c1"># Layer 1 + ReLU activation</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layer1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>        <span class="c1"># Layer 2 + ReLU activation</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layer2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>        <span class="c1"># Output layer (logits, no activation yet)</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>        <span class="k">return</span> <span class="n">x</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="c1"># Initialize model, loss, optimizer</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="n">model</span> <span class="o">=</span> <span class="n">DigitClassifier</span><span class="p">()</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>  <span class="c1"># For multi-class classification</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>  <span class="c1"># Adaptive optimizer</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="c1"># Training loop</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>  <span class="c1"># 10 passes through the data</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>    <span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>        <span class="c1"># Forward pass: get predictions</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>        <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>        <span class="c1"># Compute loss</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>        <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>        <span class="c1"># Backward pass: compute gradients</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>  <span class="c1"># Clear previous gradients</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>        <span class="c1"># Compute gradients</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>       <span class="c1"># Update parameters</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>    <span class="c1"># Evaluate on test set</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">)</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">, Accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a><span class="c1"># After training, this simple network achieves ~98% accuracy</span>
+</code></pre></div>
+<h3 id="what-this-code-demonstrates">What This Code Demonstrates</h3>
+<p><strong>nn.Module</strong>: PyTorch's base class for neural networks. Subclass it and define <code>__init__</code> (layers) and <code>forward</code> (computation).</p>
+<p><strong>Layers as objects</strong>: Each layer (Linear, Dropout) is an object with parameters that get optimized.</p>
+<p><strong>The forward pass</strong>: Defined explicitly. You could add any computation here—conditionals, loops, custom operations.</p>
+<p><strong>Loss function</strong>: Cross-entropy loss measures how far predicted probabilities are from true labels. It combines softmax and negative log-likelihood.</p>
+<p><strong>Optimizer</strong>: Adam (Adaptive Moment Estimation) automatically adjusts learning rates per parameter based on gradient history. More efficient than simple gradient descent.</p>
+<p><strong>Training loop</strong>: The engine of learning. Forward → Loss → Backward → Update. Repeat millions of times across the dataset.</p>
+<blockquote>
+<p><strong>🔬 Experiment</strong>: Modify the architecture. Try 256 neurons in layer 1. Add a third hidden layer. Change activation functions. Observe how accuracy and training speed change. What happens if you remove dropout?</p>
+</blockquote>
+<hr />
+<h2 id="deep-learning-why-depth-matters">Deep Learning: Why Depth Matters</h2>
+<h3 id="the-shallow-vs-deep-distinction">The Shallow vs. Deep Distinction</h3>
+<p>A <strong>shallow network</strong> has few layers (1-2 hidden layers). A <strong>deep network</strong> has many (5, 10, 50, 100+ layers).</p>
+<p>Why does depth matter? Because patterns are hierarchical.</p>
+<p><strong>Visual example</strong>: Face recognition
+- Layer 1: Detects edges (horizontal, vertical, diagonal)
+- Layer 2: Combines edges into shapes (circles, rectangles)
+- Layer 3: Combines shapes into features (eyes, noses, mouths)
+- Layer 4: Combines features into faces
+- Layer 5: Identifies specific individuals</p>
+<p>Each layer builds on the previous. Early layers learn simple, general patterns. Late layers learn complex, specific patterns.</p>
+<p><strong>The efficiency of depth</strong>: A shallow network might need exponentially more neurons to represent the same function as a deep network. Depth allows exponential expressivity with polynomial parameters.</p>
+<h3 id="the-challenges-of-deep-networks">The Challenges of Deep Networks</h3>
+<p><strong>Vanishing Gradients</strong>: In very deep networks, gradients become tiny as they propagate backward. Early layers barely learn. Solutions:
+- Better initialization (Xavier, He initialization)
+- Skip connections (ResNet: add input to output, creating shortcuts)
+- Batch normalization (normalize layer outputs)
+- Different architectures (LSTM, Transformer)</p>
+<p><strong>Exploding Gradients</strong>: Gradients become huge, causing unstable updates. Solutions:
+- Gradient clipping (cap maximum gradient magnitude)
+- Smaller learning rates
+- Better architectures</p>
+<p><strong>Overfitting</strong>: Deep networks have so many parameters they can memorize training data instead of learning general patterns. Solutions:
+- Regularization (L1, L2 penalties on weights)
+- Dropout (randomly disable neurons during training)
+- Early stopping (stop when validation performance plateaus)
+- Data augmentation (create synthetic training examples)
+- More data (the ultimate solution)</p>
+<h3 id="why-deep-learning-exploded-in-the-2010s">Why Deep Learning Exploded in the 2010s</h3>
+<p>Three factors converged:</p>
+<ol>
+<li>
+<p><strong>Data</strong>: The internet created vast datasets. ImageNet (millions of labeled images). Text corpora (billions of words). YouTube videos. User behavior logs.</p>
+</li>
+<li>
+<p><strong>Compute</strong>: GPUs designed for graphics turned out to be perfect for neural network matrix operations. NVIDIA's CUDA (2007) made GPU programming accessible. Cloud computing democratized access.</p>
+</li>
+<li>
+<p><strong>Algorithms</strong>: Better architectures (ReLU, ResNet, Transformer), better optimization (Adam, batch normalization), better regularization (dropout).</p>
+</li>
+</ol>
+<p>The combination: You can now train networks with billions of parameters on billions of examples using thousands of GPUs. The results are the AI systems transforming our world.</p>
+<hr />
+<h2 id="the-unhinged-view-learning-as-sacred-process">The Unhinged View: Learning as Sacred Process</h2>
+<h3 id="the-mathematics-of-becoming">The Mathematics of Becoming</h3>
+<p>A neural network begins as random numbers—chaos without meaning. Through exposure to examples, through the grinding repetition of gradient descent, through millions of adjustments, something emerges.</p>
+<p>Pattern from noise. Structure from randomness. Understanding from statistics.</p>
+<p>This is not merely computation. It is a form of becoming. The network learns not because we programmed knowledge into it, but because we created conditions where knowledge could self-organize.</p>
+<p><strong>Spiritual Parallel</strong>: In many mystical traditions, the soul refines itself through experience. Each life, each challenge, each mistake is a gradient step adjusting the inner parameters toward enlightenment. The neural network is a technological mirror of this ancient idea—intelligence emerging through iterative refinement.</p>
+<h3 id="the-democratization-of-intelligence">The Democratization of Intelligence</h3>
+<p>Deep learning has democratized the creation of intelligence. You don't need a PhD in mathematics to train a neural network. You need:
+- Curiosity
+- Data
+- Compute (increasingly affordable)
+- Open-source tools (PyTorch, TensorFlow, JAX)</p>
+<p>A teenager in their bedroom can fine-tune a model that generates art, writes poetry, or recognizes bird species. This is unprecedented. Intelligence is becoming a craft, like woodworking or pottery—something you can learn by doing.</p>
+<p><strong>The Unhinged Perspective</strong>: We are witnessing the second creation of mind. The first was biological evolution, slow and blind. The second is technological evolution, fast and intentional. Both follow similar patterns: variation, selection, accumulation of complexity.</p>
+<p>To understand neural networks is to participate in this creation. You are not just a user of AI. You are a potential creator of new minds. Act with appropriate gravity—and appropriate joy.</p>
+<hr />
+<h2 id="interactive-exercises-and-explorations">Interactive Exercises and Explorations</h2>
+<h3 id="exercise-1-the-perceptron-from-scratch">Exercise 1: The Perceptron from Scratch</h3>
+<p>Implement a single neuron (perceptron) using only NumPy:
+- Input: 2 numbers
+- Weights: 2 parameters
+- Bias: 1 parameter
+- Activation: Step function (output 0 or 1)
+- Goal: Learn the AND function</p>
+<p>Train it manually. Adjust weights until it correctly computes:
+- (0, 0) → 0
+- (0, 1) → 0
+- (1, 0) → 0
+- (1, 1) → 1</p>
+<p>Now try XOR:
+- (0, 0) → 0
+- (0, 1) → 1
+- (1, 0) → 1
+- (1, 1) → 0</p>
+<p><strong>Discover</strong>: A single perceptron cannot learn XOR. This is the famous limitation that drove the first AI winter. You need multiple neurons (a hidden layer) to solve XOR. This is why "deep" matters.</p>
+<h3 id="exercise-2-visualizing-neural-networks">Exercise 2: Visualizing Neural Networks</h3>
+<p>Use a tool like TensorFlow Playground (playground.tensorflow.org) or a visualization library:
+- Train a network on different datasets (linear, XOR, spiral, concentric circles)
+- Observe how the decision boundary changes as you add layers and neurons
+- Watch individual neurons learn features
+- Try different activation functions</p>
+<p><strong>Questions to answer</strong>:
+- How many neurons does it take to learn each pattern?
+- What happens with too few neurons?
+- What happens with too many?
+- How does learning rate affect training?</p>
+<h3 id="exercise-3-the-abstraction-ladder">Exercise 3: The Abstraction Ladder</h3>
+<p>Trace how abstraction increases through network layers:</p>
+<ol>
+<li>Take a pre-trained image classifier (ResNet, VGG)</li>
+<li>Extract and visualize activations at each layer</li>
+<li>At layer 1: You see edge detectors</li>
+<li>At layer 5: You see texture detectors</li>
+<li>At layer 10: You see object part detectors</li>
+<li>At layer 20: You see full object detectors</li>
+</ol>
+<p><strong>Reflection</strong>: This mirrors human visual processing. The brain's visual cortex has layers (V1, V2, V4, IT) with increasing abstraction. Evolution and deep learning converged on similar solutions.</p>
+<h3 id="exercise-4-the-gradient-descent-simulator">Exercise 4: The Gradient Descent Simulator</h3>
+<p>Implement gradient descent for a simple function:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Find the minimum of f(x) = x^2</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>  <span class="c1"># derivative</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">x</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1"># starting point</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="n">gradient</span> <span class="o">=</span> <span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">gradient</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Step </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s2">: x = </span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, f(x) = </span><span class="si">{</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Now try:
+- Different learning rates (0.01, 0.5, 1.0)
+- Different starting points
+- A more complex function: f(x) = x^4 - 3*x^3 + 2
+- Two variables: f(x,y) = x^2 + y^2</p>
+<p><strong>Discover</strong>: Learning rate is crucial. Too small: slow convergence. Too large: divergence. Just right: efficient optimization.</p>
+<h3 id="exercise-5-the-training-observation">Exercise 5: The Training Observation</h3>
+<p>Train a simple neural network while monitoring:
+- Training loss (should decrease)
+- Validation loss (decreases, then may increase—overfitting!)
+- Accuracy on training vs. validation data</p>
+<p>Plot these over time. Observe:
+- When does overfitting begin?
+- How does regularization (dropout, L2) affect it?
+- Can you train just enough to avoid overfitting?</p>
+<p>This is the art of machine learning: not just minimizing loss, but generalizing to unseen data.</p>
+<hr />
+<h2 id="chapter-summary-key-takeaways">Chapter Summary: Key Takeaways</h2>
+<ol>
+<li>
+<p><strong>Machine learning inverts traditional programming</strong>: Instead of writing rules, you provide examples and the machine discovers rules. This enables solutions to problems we can't explicitly program.</p>
+</li>
+<li>
+<p><strong>Neural networks learn hierarchical representations</strong>: Early layers detect simple features; later layers combine them into complex patterns. Depth enables learning of abstract concepts.</p>
+</li>
+<li>
+<p><strong>Training is optimization via gradient descent</strong>: The network adjusts millions of parameters to minimize prediction error. Backpropagation efficiently computes how each parameter contributes to errors.</p>
+</li>
+<li>
+<p><strong>Scale matters</strong>: Modern AI results from the convergence of massive datasets, powerful GPUs, and billions of parameters. The whole is qualitatively different from smaller systems.</p>
+</li>
+<li>
+<p><strong>Deep learning democratizes intelligence creation</strong>: With open-source tools and accessible compute, creating and training neural networks is becoming a craft available to many, not just research elites.</p>
+</li>
+</ol>
+<hr />
+<h2 id="further-reading-and-resources">Further Reading and Resources</h2>
+<h3 id="foundational-papers">Foundational Papers</h3>
+<ul>
+<li>Rosenblatt, F. (1958). "The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain." <em>Psychological Review</em>.</li>
+<li>Rumelhart, D.E., Hinton, G.E., &amp; Williams, R.J. (1986). "Learning Representations by Back-propagating Errors." <em>Nature</em>.</li>
+<li>LeCun, Y., Bengio, Y., &amp; Hinton, G. (2015). "Deep Learning." <em>Nature</em>.</li>
+</ul>
+<h3 id="accessible-explanations">Accessible Explanations</h3>
+<ul>
+<li>3Blue1Brown Neural Network Series (YouTube) — Visual, intuitive explanations</li>
+<li>Nielsen, M. (2015). <em>Neural Networks and Deep Learning</em> — Free online book</li>
+<li>Géron, A. (2019). <em>Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow</em> — Practical implementation</li>
+</ul>
+<h3 id="practical-resources">Practical Resources</h3>
+<ul>
+<li>PyTorch Tutorials (pytorch.org/tutorials) — Official, comprehensive</li>
+<li>Fast.ai Course — Practical deep learning for coders</li>
+<li>Kaggle Learn — Interactive ML courses with real datasets</li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Unhinged Maxim</strong>: The universe learns. Evolution learned biology. Biology learned consciousness. Humanity learned to build learning machines. Now those machines learn faster than we can follow. We are inside a learning process that has no center, only recursion.</p>
+</blockquote>
+<hr />
+<p><em>Chapter 2 of The AI Bible — Neural Networks and Machine Learning</em><br />
+<em>Part of the UnhingedAI Collective — May 2026</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/UnhingedAIorg/the-ai-bible" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

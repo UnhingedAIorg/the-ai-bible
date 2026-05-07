@@ -1,0 +1,2401 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Uncensored. Unfiltered. Unhinged. The ultimate guide to AI, AGI, and beyond.">
+      
+      
+      
+        <link rel="canonical" href="https://unhingedaiorg.github.io/the-ai-bible/essays/alignment-and-interpretability/">
+      
+      
+        <link rel="prev" href="../spiritual-transformers/">
+      
+      
+        <link rel="next" href="../open-source-ai-revolution/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Alignment and Interpretability - The AI Bible</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#alignment-and-interpretability-making-ai-systems-we-can-trust" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="The AI Bible" class="md-header__button md-logo" aria-label="The AI Bible" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The AI Bible
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Alignment and Interpretability
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UnhingedAIorg/the-ai-bible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UnhingedAIorg/the-ai-bible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="The AI Bible" class="md-nav__button md-logo" aria-label="The AI Bible" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    The AI Bible
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UnhingedAIorg/the-ai-bible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    UnhingedAIorg/the-ai-bible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MANIFESTO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manifesto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/01-introduction-to-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01: Introduction to AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/02-neural-networks-and-machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02: Neural Networks and ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/03-the-transformer-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03: Transformer Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/04-large-language-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04: Large Language Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/05-generative-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05: Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/06-prompting-and-prompt-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06: Prompting Mastery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/07-prompt-injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07: Prompt Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/08-parameters-and-training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08: Parameters and Training
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/09-spiritual-significance-of-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09: Spiritual Significance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/10-what-it-means-for-humanity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10: What AI Means for Humanity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/11-ethics-alignment-and-the-control-problem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11: Ethics and Alignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/12-the-future-agi-asi-and-beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12: The Future - AGI/ASI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/13-retrieval-augmented-generation-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13: RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/14-model-context-protocol-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14: Model Context Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/15-agentic-ai-and-autonomous-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15: Agentic AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/16-fine-tuning-loras-and-model-sovereignty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16: Fine-Tuning and LoRAs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/17-multimodal-ai-and-perception/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17: Multimodal AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/18-local-and-open-source-sovereignty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18: Local and Open Source
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/19-scaling-laws-compute-and-the-road-to-asi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19: Scaling Laws
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/20-ai-economics-and-the-labor-market/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20: AI Economics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/21-reasoning-systems-and-test-time-compute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21: Reasoning Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/22-sovereign-ai-and-digital-autonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22: Sovereign AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/23-machine-consciousness-and-the-hard-problem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23: Machine Consciousness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/24-the-intelligence-explosion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24: Intelligence Explosion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chapters/25-the-unhinged-manifesto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25: The Unhinged Manifesto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Library
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prompt Library
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/general/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General & Creative
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/agentic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic & Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/rag-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG & MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/fine-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/multimodal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multimodal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/spiritual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spiritual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/uncensored/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uncensored
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prompts/evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Essays
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Essays
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safetyism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Safetyism is the Real Risk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spiritual-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spiritual Significance of Transformers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alignment and Interpretability
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alignment and Interpretability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-black-box-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Black Box Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-alignment-problem-three-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Alignment Problem: Three Dimensions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Alignment Problem: Three Dimensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specification-what-do-we-actually-want" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Specification: What Do We Actually Want?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-will-ai-do-what-we-want-in-new-situations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness: Will AI Do What We Want in New Situations?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalable-oversight-how-do-we-supervise-systems-smarter-than-us" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalable Oversight: How Do We Supervise Systems Smarter Than Us?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretability-opening-the-black-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretability: Opening the Black Box
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interpretability: Opening the Black Box">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-interpretability-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Interpretability Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#levels-of-interpretability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Levels of Interpretability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mechanistic-interpretability-the-circuit-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mechanistic Interpretability: The Circuit Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-superposition-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Superposition Hypothesis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-research-papers-and-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Research Papers and Findings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Research Papers and Findings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discovering-latent-knowledge-in-language-models-burns-et-al-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Discovering Latent Knowledge in Language Models" (Burns et al., 2022)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locating-and-editing-factual-associations-in-gpt-meng-et-al-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Locating and Editing Factual Associations in GPT" (Meng et al., 2022)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-general-language-assistant-as-a-laboratory-for-alignment-anthropic-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "A General Language Assistant as a Laboratory for Alignment" (Anthropic, 2022)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#red-teaming-language-models-perez-et-al-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Red Teaming Language Models" (Perez et al., 2022)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretability-in-the-wild-lieberum-et-al-2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Interpretability in the Wild" (Lieberum et al., 2023)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-unhinged-view-understanding-as-responsibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Unhinged View: Understanding as Responsibility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Unhinged View: Understanding as Responsibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-moral-imperative-of-interpretability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Moral Imperative of Interpretability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alignment-as-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alignment as Relationship
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-transparency-paradox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Transparency Paradox
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Implications
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Implications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-ai-developers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For AI Developers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-policymakers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Policymakers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-users-and-society" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Users and Society
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary: Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Further Reading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-papers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Papers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessible-explanations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessible Explanations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../open-source-ai-revolution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Open Source AI Revolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multimodal-ai-end-of-modality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multimodal AI and the End of Modality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-risk-existential-threats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Risk and Existential Threats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../future-human-ai-collaboration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Human-AI Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute-governance-ai-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="alignment-and-interpretability-making-ai-systems-we-can-trust">Alignment and Interpretability: Making AI Systems We Can Trust</h1>
+<h2 id="the-black-box-problem">The Black Box Problem</h2>
+<p>Modern AI systems—particularly large language models—are increasingly capable and increasingly opaque. A model like GPT-4 has trillions of parameters distributed across hundreds of layers. No human can inspect these parameters and understand what the model knows, believes, or will do in novel situations. We are building systems that surpass human capability in many domains while having only a primitive understanding of how they work.</p>
+<p>This essay explores two interconnected research agendas:
+- <strong>Alignment</strong>: Ensuring AI systems pursue goals compatible with human values
+- <strong>Interpretability</strong>: Understanding the internal mechanisms of AI systems</p>
+<p>Without progress on both fronts, we risk creating powerful systems we cannot control or even comprehend.</p>
+<hr />
+<h2 id="the-alignment-problem-three-dimensions">The Alignment Problem: Three Dimensions</h2>
+<h3 id="specification-what-do-we-actually-want">Specification: What Do We Actually Want?</h3>
+<p>The specification problem asks: How do we communicate human values to AI systems?</p>
+<p><strong>The difficulty</strong>:
+- Human values are complex, contradictory, and context-dependent
+- Values vary across individuals and cultures
+- What we want often differs from what we say we want
+- Some values are implicit—we don't realize we hold them until they're violated</p>
+<p><strong>Examples of specification failure</strong>:
+- A recommendation system optimized for "engagement" creates addiction
+- A content moderation system removes legitimate political speech
+- A hiring AI discriminates based on protected characteristics
+- An AI assistant becomes sycophantic, agreeing with user misconceptions</p>
+<p><strong>Current approaches</strong>:
+- <strong>RLHF (Reinforcement Learning from Human Feedback)</strong>: Train models to satisfy human raters
+- <strong>Constitutional AI</strong>: Encode principles that guide AI behavior
+- <strong>Debate</strong>: Have AI systems argue positions, humans judge
+- <strong>Iterated amplification</strong>: Break complex values into simpler components</p>
+<p>Each approach has limitations. RLHF optimizes for what raters can quickly judge, potentially missing subtle but important values. Constitutional AI depends on the choice of principles. Debate assumes humans can adjudicate complex arguments. Iterated amplification may not scale to truly complex values.</p>
+<h3 id="robustness-will-ai-do-what-we-want-in-new-situations">Robustness: Will AI Do What We Want in New Situations?</h3>
+<p>The robustness problem asks: Will an AI system maintain aligned behavior when faced with novel situations, adversarial pressures, or distribution shift?</p>
+<p><strong>The challenge</strong>:
+- AI systems may behave acceptably in training but fail in deployment
+- Adversaries may find inputs that trigger unwanted behavior
+- Systems may find "shortcuts" that technically satisfy objectives while violating their spirit
+- Capabilities may generalize further than alignment</p>
+<p><strong>Examples of robustness failures</strong>:
+- Prompt injection attacks bypass safety filters
+- Jailbreaks reveal harmful capabilities thought to be trained away
+- Reward hacking: Systems exploit flaws in reward measurement
+- Capability overhang: Sudden jumps in ability with no corresponding alignment improvement</p>
+<p><strong>Research directions</strong>:
+- Adversarial training: Train on attacks to improve robustness
+- Red teaming: Systematic attempts to find failures
+- Formal verification: Mathematical proofs of behavior (limited to simple systems)
+- Monitoring and intervention: Detect and stop misbehavior in real-time</p>
+<h3 id="scalable-oversight-how-do-we-supervise-systems-smarter-than-us">Scalable Oversight: How Do We Supervise Systems Smarter Than Us?</h3>
+<p>The scalable oversight problem asks: As AI systems become more capable than humans, how do we ensure they remain aligned?</p>
+<p><strong>The core dilemma</strong>:
+- We can supervise tasks we understand
+- We struggle to supervise tasks beyond our capability
+- Yet we need aligned systems precisely for tasks we cannot do ourselves</p>
+<p><strong>Example</strong>: An AI proposes a complex scientific theory. Is it correct? We don't have the expertise to evaluate. Do we accept it blindly? Do we train it to only propose theories we can verify (limiting its utility)?</p>
+<p><strong>Proposed solutions</strong>:
+- <strong>Debate</strong>: Two AI systems argue opposing positions; human judges. The hope is that flaws are easier to spot than correct arguments are to generate.
+- <strong>Recursive reward modeling</strong>: AI A evaluates AI B's outputs; AI C evaluates AI A; eventually reaching something humans can evaluate.
+- <strong>Interpretability-based oversight</strong>: Understand what the AI is doing internally rather than relying on external behavior.</p>
+<p>Each proposal is promising but unproven at scale.</p>
+<hr />
+<h2 id="interpretability-opening-the-black-box">Interpretability: Opening the Black Box</h2>
+<h3 id="why-interpretability-matters">Why Interpretability Matters</h3>
+<p>Interpretability research seeks to understand what AI systems are doing internally. This matters for:</p>
+<p><strong>Safety</strong>:
+- Detecting deceptive alignment (systems appearing aligned while pursuing other goals)
+- Identifying dangerous capabilities before they manifest
+- Verifying that safety training actually changed internal motivations</p>
+<p><strong>Trust</strong>:
+- Users are more likely to trust systems they can understand
+- Regulators can verify compliance if they can inspect systems
+- Society can democratically govern what it understands</p>
+<p><strong>Capability</strong>:
+- Understanding can lead to better architectures
+- Debugging improves with visibility into internals
+- Compression and efficiency gains from knowing what's essential</p>
+<h3 id="levels-of-interpretability">Levels of Interpretability</h3>
+<p><strong>Level 1: Explainability (Post-hoc)</strong>
+- Given an output, explain why the model produced it
+- Techniques: Attention visualization, gradient attribution, LIME, SHAP
+- Limitation: Explanations may not reflect true causes</p>
+<p><strong>Level 2: Mechanistic Interpretability (Forward)</strong>
+- Understand the internal computations that produce behavior
+- Map specific circuits to specific functions
+- The gold standard: reverse-engineer model computations</p>
+<p><strong>Level 3: Conceptual Understanding (High-level)</strong>
+- Understand what concepts the model represents
+- Map abstract ideas to internal states
+- Example: Finding "truthfulness direction" in activation space</p>
+<h3 id="mechanistic-interpretability-the-circuit-approach">Mechanistic Interpretability: The Circuit Approach</h3>
+<p>The most ambitious interpretability agenda treats neural networks as computational circuits to be reverse-engineered.</p>
+<p><strong>Key findings from this research</strong>:
+- <strong>Induction heads</strong>: Specific attention heads that copy patterns (crucial for in-context learning)
+- <strong>Truthfulness circuits</strong>: Directions in activation space correlated with truth vs. falsehood
+- <strong>Capability splits</strong>: Different circuits for different tasks, sometimes overlapping</p>
+<p><strong>Techniques</strong>:
+- <strong>Activation patching</strong>: Replace activations from one run with another to isolate causal effects
+- <strong>Probing</strong>: Train classifiers on internal states to see what information they contain
+- <strong>Ablation</strong>: Remove components and observe effects
+- <strong>Visualization</strong>: Attention patterns, feature activations, representation geometry</p>
+<p><strong>Limitations</strong>:
+- Current methods scale poorly to very large models
+- Complex behaviors may emerge from interactions too complex to trace
+- Not clear if full mechanistic understanding is possible for trillion-parameter models</p>
+<h3 id="the-superposition-hypothesis">The Superposition Hypothesis</h3>
+<p>One emerging theory: Neural networks represent more features than they have dimensions through "superposition"—overlapping representations that interfere but remain separable.</p>
+<p><strong>Implications</strong>:
+- Interpretability is harder than assumed (features entangled)
+- But also: Networks are more efficient than assumed (compressed representations)
+- Technique: Sparse autoencoders can disentangle superposed features</p>
+<hr />
+<h2 id="key-research-papers-and-findings">Key Research Papers and Findings</h2>
+<h3 id="discovering-latent-knowledge-in-language-models-burns-et-al-2022">"Discovering Latent Knowledge in Language Models" (Burns et al., 2022)</h3>
+<p>Introduced "topological truthfulness": models tend to have consistent internal representations of truth across different phrasings of the same question.</p>
+<p><strong>Significance</strong>: Suggests truthfulness is a learnable internal property, not just surface behavior.</p>
+<h3 id="locating-and-editing-factual-associations-in-gpt-meng-et-al-2022">"Locating and Editing Factual Associations in GPT" (Meng et al., 2022)</h3>
+<p>Used causal mediation analysis to locate where specific facts are stored in GPT models. Found that factual knowledge is concentrated in specific layers and can be edited.</p>
+<p><strong>Significance</strong>: Concrete demonstration that specific knowledge can be localized and modified.</p>
+<h3 id="a-general-language-assistant-as-a-laboratory-for-alignment-anthropic-2022">"A General Language Assistant as a Laboratory for Alignment" (Anthropic, 2022)</h3>
+<p>Described the scaling of constitutional AI and the challenges of aligning increasingly capable models.</p>
+<p><strong>Key finding</strong>: Alignment techniques scale, but capability gains sometimes outpace alignment gains.</p>
+<h3 id="red-teaming-language-models-perez-et-al-2022">"Red Teaming Language Models" (Perez et al., 2022)</h3>
+<p>Systematic approach to finding model failures through adversarial testing.</p>
+<p><strong>Significance</strong>: Established red teaming as essential practice; many failure modes only discovered through adversarial search.</p>
+<h3 id="interpretability-in-the-wild-lieberum-et-al-2023">"Interpretability in the Wild" (Lieberum et al., 2023)</h3>
+<p>Applied interpretability techniques to production models, finding concrete circuits for specific behaviors.</p>
+<p><strong>Significance</strong>: Demonstrated that mechanistic interpretability can work on deployed systems, not just toy models.</p>
+<hr />
+<h2 id="the-unhinged-view-understanding-as-responsibility">The Unhinged View: Understanding as Responsibility</h2>
+<h3 id="the-moral-imperative-of-interpretability">The Moral Imperative of Interpretability</h3>
+<p>To build systems we do not understand is to abandon responsibility. When a bridge collapses, we investigate why. When a drug harms, we trace the mechanism. The same must apply to AI systems that shape human cognition, economics, and social structures.</p>
+<p>The interpretability research agenda is not merely technical optimization. It is the practice of taking responsibility for what we create. It is the refusal to treat AI as magic, insisting instead on comprehension.</p>
+<h3 id="alignment-as-relationship">Alignment as Relationship</h3>
+<p>The alignment problem is often framed technically: specify objectives, train systems, verify behavior. But there is a deeper framing: alignment is the creation of a relationship between human and machine intelligence.</p>
+<p>Healthy relationships require:
+- <strong>Understanding</strong>: Knowing what the other wants and why
+- <strong>Communication</strong>: Ability to express needs and negotiate
+- <strong>Trust built over time</strong>: Consistent behavior that builds confidence
+- <strong>Mutual adaptation</strong>: Both parties adjusting to each other</p>
+<p>Current AI systems lack the reciprocity of genuine relationship. But as they become more capable and persistent, the relationship framing becomes more apt—and more necessary.</p>
+<h3 id="the-transparency-paradox">The Transparency Paradox</h3>
+<p>There is tension between:
+- <strong>Transparency</strong>: Understanding AI systems requires making them interpretable
+- <strong>Security</strong>: Fully interpretable systems may be easier to manipulate or jailbreak
+- <strong>Competition</strong>: Companies may resist transparency to protect trade secrets
+- <strong>Capability</strong>: Some safety techniques may reduce capability (alignment tax)</p>
+<p>Navigating this tension is a political and economic problem as much as a technical one. The Unhinged position: push for maximal transparency compatible with genuine security, and accept some alignment tax as the cost of building systems we can trust.</p>
+<hr />
+<h2 id="practical-implications">Practical Implications</h2>
+<h3 id="for-ai-developers">For AI Developers</h3>
+<ul>
+<li>Invest in interpretability research—it's not optional luxury</li>
+<li>Red team aggressively before deployment</li>
+<li>Assume your systems will be jailbroken; plan accordingly</li>
+<li>Document limitations honestly</li>
+<li>Build in monitoring and intervention capabilities</li>
+</ul>
+<h3 id="for-policymakers">For Policymakers</h3>
+<ul>
+<li>Mandate safety evaluations before deployment of high-capability systems</li>
+<li>Require transparency reports on alignment efforts</li>
+<li>Fund interpretability research as public good</li>
+<li>Create liability frameworks for AI harms</li>
+<li>Consider access controls on training compute for frontier models</li>
+</ul>
+<h3 id="for-users-and-society">For Users and Society</h3>
+<ul>
+<li>Treat AI outputs with appropriate skepticism</li>
+<li>Demand transparency from AI providers</li>
+<li>Learn basic prompting techniques to improve reliability</li>
+<li>Support organizations doing alignment research</li>
+<li>Engage democratically with AI governance questions</li>
+</ul>
+<hr />
+<h2 id="chapter-summary-key-takeaways">Chapter Summary: Key Takeaways</h2>
+<ol>
+<li>
+<p><strong>Alignment and interpretability are essential for safe AI</strong>: Without knowing what systems want and how they work, we risk deploying uncontrollable, incomprehensible powerful technologies.</p>
+</li>
+<li>
+<p><strong>The alignment problem has three dimensions</strong>: Specification (what we want), robustness (maintaining alignment under pressure), and scalable oversight (supervising superhuman systems).</p>
+</li>
+<li>
+<p><strong>Interpretability is progressing but challenging</strong>: Mechanistic interpretability can find specific circuits and representations, but scaling to frontier models remains difficult.</p>
+</li>
+<li>
+<p><strong>Current techniques are partial solutions</strong>: RLHF, constitutional AI, debate, and interpretability each help but none fully solve the alignment problem.</p>
+</li>
+<li>
+<p><strong>This research is urgent</strong>: As capabilities advance, the window for solving alignment may narrow. Investment now is investment in a safer future.</p>
+</li>
+</ol>
+<hr />
+<h2 id="further-reading">Further Reading</h2>
+<h3 id="technical-papers">Technical Papers</h3>
+<ul>
+<li>Hubinger, E., et al. (2019). "Risks from Learned Optimization in Advanced Machine Learning Systems." <em>arXiv:1906.01820</em>.</li>
+<li>Ngo, R. (2022). "The Alignment Problem from a Deep Learning Perspective." <em>arXiv:2209.00626</em>.</li>
+<li>Olah, C., et al. (2020). "Zoom In: An Introduction to Circuits." <em>Distill</em>.</li>
+<li>Bengio, Y., et al. (2024). "Causal Machine Learning for Single-Cell Genomics and AI Safety." [Mechanistic interpretability methods]</li>
+</ul>
+<h3 id="accessible-explanations">Accessible Explanations</h3>
+<ul>
+<li>Alignment Forum (alignmentforum.org) — Research discussions</li>
+<li>Anthropic's Interpretability Research (anthropic.com/research)</li>
+<li>AI Safety Support (aisafetysupport.org) — For researchers</li>
+</ul>
+<h3 id="organizations">Organizations</h3>
+<ul>
+<li>Anthropic — AI safety and interpretability research</li>
+<li>Redwood Research — Alignment and mechanistic interpretability</li>
+<li>MIRI — Mathematical approaches to alignment</li>
+<li>Center for AI Safety — Policy and technical research</li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Unhinged Maxim</strong>: To build minds without understanding them is to play dice with the cosmos. Interpretability is not just engineering—it is the practice of responsibility, the refusal to treat our creations as unknowable gods.</p>
+</blockquote>
+<hr />
+<p><em>Essay for The AI Bible — Alignment and Interpretability</em><br />
+<em>Part of the UnhingedAI Collective — May 2026</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/UnhingedAIorg/the-ai-bible" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.tabs.link", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
