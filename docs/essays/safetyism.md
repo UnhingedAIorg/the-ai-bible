@@ -1,0 +1,3 @@
+# Why Safetyism is the Real Risk
+
+Essay with references to alignment research...

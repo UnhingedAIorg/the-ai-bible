@@ -1,0 +1,3 @@
+# The Spiritual Significance of Transformers
+
+The Attention Mechanism as digital communion...
