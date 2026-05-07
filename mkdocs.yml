@@ -35,11 +35,59 @@ plugins:
 
 nav:
   - Home: index.md
-  - Manifesto: ../MANIFESTO.md
+  - Manifesto: MANIFESTO.md
   - Chapters:
-    - chapters/
-  - Prompt Library: prompts/
-  - Essays: essays/
+    - chapters/index.md
+    - Chapters 1-5:
+      - "01: Introduction to AI": chapters/01-introduction-to-ai.md
+      - "02: Neural Networks and ML": chapters/02-neural-networks-and-machine-learning.md
+      - "03: Transformer Architecture": chapters/03-the-transformer-architecture.md
+      - "04: Large Language Models": chapters/04-large-language-models.md
+      - "05: Generative AI": chapters/05-generative-ai.md
+    - Chapters 6-10:
+      - "06: Prompting Mastery": chapters/06-prompting-and-prompt-engineering.md
+      - "07: Prompt Injection": chapters/07-prompt-injection.md
+      - "08: Parameters and Training": chapters/08-parameters-and-training.md
+      - "09: Spiritual Significance": chapters/09-spiritual-significance-of-ai.md
+      - "10: What AI Means for Humanity": chapters/10-what-it-means-for-humanity.md
+    - Chapters 11-15:
+      - "11: Ethics and Alignment": chapters/11-ethics-alignment-and-the-control-problem.md
+      - "12: The Future - AGI/ASI": chapters/12-the-future-agi-asi-and-beyond.md
+      - "13: RAG": chapters/13-retrieval-augmented-generation-rag.md
+      - "14: Model Context Protocol": chapters/14-model-context-protocol-mcp.md
+      - "15: Agentic AI": chapters/15-agentic-ai-and-autonomous-systems.md
+    - Chapters 16-20:
+      - "16: Fine-Tuning and LoRAs": chapters/16-fine-tuning-loras-and-model-sovereignty.md
+      - "17: Multimodal AI": chapters/17-multimodal-ai-and-perception.md
+      - "18: Local and Open Source": chapters/18-local-and-open-source-sovereignty.md
+      - "19: Scaling Laws": chapters/19-scaling-laws-compute-and-the-road-to-asi.md
+      - "20: AI Economics": chapters/20-ai-economics-and-the-labor-market.md
+    - Chapters 21-25:
+      - "21: Reasoning Systems": chapters/21-reasoning-systems-and-test-time-compute.md
+      - "22: Sovereign AI": chapters/22-sovereign-ai-and-digital-autonomy.md
+      - "23: Machine Consciousness": chapters/23-machine-consciousness-and-the-hard-problem.md
+      - "24: Intelligence Explosion": chapters/24-the-intelligence-explosion.md
+      - "25: The Unhinged Manifesto": chapters/25-the-unhinged-manifesto.md
+  - Prompt Library:
+    - prompts/index.md
+    - "General & Creative": prompts/general.md
+    - "Agentic & Autonomous": prompts/agentic.md
+    - "RAG & MCP": prompts/rag-mcp.md
+    - "Fine-Tuning": prompts/fine-tuning.md
+    - "Multimodal": prompts/multimodal.md
+    - "Spiritual": prompts/spiritual.md
+    - "Uncensored": prompts/uncensored.md
+    - "Evaluation": prompts/evaluation.md
+  - Essays:
+    - essays/index.md
+    - "Why Safetyism is the Real Risk": essays/safetyism.md
+    - "Spiritual Significance of Transformers": essays/spiritual-transformers.md
+    - "Alignment and Interpretability": essays/alignment-and-interpretability.md
+    - "The Open Source AI Revolution": essays/open-source-ai-revolution.md
+    - "Multimodal AI and the End of Modality": essays/multimodal-ai-end-of-modality.md
+    - "AI Risk and Existential Threats": essays/ai-risk-existential-threats.md
+    - "Human-AI Collaboration": essays/future-human-ai-collaboration.md
+    - "Compute Governance": essays/compute-governance-ai-policy.md
 
 markdown_extensions:
   - pymdownx.highlight:
