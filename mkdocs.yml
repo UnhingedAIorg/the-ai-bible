@@ -1,6 +1,7 @@
 site_name: The AI Bible
 site_description: Uncensored. Unfiltered. Unhinged. The ultimate guide to AI, AGI, and beyond.
 site_url: https://unhingedaiorg.github.io/the-ai-bible/
+site_dir: site
 repo_name: UnhingedAIorg/the-ai-bible
 repo_url: https://github.com/UnhingedAIorg/the-ai-bible
 
