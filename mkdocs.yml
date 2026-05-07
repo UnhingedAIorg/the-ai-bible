@@ -92,7 +92,7 @@ markdown_extensions:
   - attr_list
 
 extra:
-  # Trigger rebuild: $(date)
+  # Trigger rebuild: Thu May 7 16:05:00 UTC 2026
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/UnhingedAIorg/the-ai-bible
